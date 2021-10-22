@@ -10,8 +10,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Crypto {
-    static boolean printed = false;
-
     static Miner miner = new Miner("miner0");
 
     static ArrayList<Transaction> transactionList = new ArrayList<>();
@@ -28,15 +26,14 @@ public class Crypto {
         }
         List<Block> blockChain = BlockChain.tempBlocks.get(miner.getId());
 
-        if (!printed && blockChain.size() > 1) {
+        if (blockChain.size() > 1) {
             System.out.printf("Local blockchain: %s%n", miner.getId());
             System.out.println("====================");
-            printed = true;
             Crypto.getTransactionList().forEach(transaction -> {
                 if (BlockChain.verify(transaction.getHash(), blockChain.get(0).getTransactionTree())) {
-                    System.out.println(transaction.getHash() + " is in " + blockChain.get(0).getHash() );
+                    System.out.println( blockChain.get(0).getHash() + " contains: " + transaction.getHash() );
                 } else {
-                    System.out.println(transaction.getHash() + " is not in " + blockChain.get(0).getHash() );
+                    System.out.println( blockChain.get(0).getHash() + " doesn't contain: " + transaction.getHash());
                 }
             });
 

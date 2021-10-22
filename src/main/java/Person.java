@@ -41,7 +41,7 @@ public class Person extends Utils {
         Signature signature = Signature.getInstance("SHA256withRSA");
         signature.initSign(this.keyPair.getPrivate());
         transaction.sign(signature);
-        System.out.printf("Transaction signed: %s%n", Hex.encodeHexString(transaction.getSignature()));
+        System.out.printf("%s sent %s a sum of: %d btc%n", this.name, personTo.getName(), sum);
         Crypto.handleTransactions();
         return transaction;
     }
