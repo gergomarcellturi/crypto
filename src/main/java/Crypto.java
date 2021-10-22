@@ -46,15 +46,15 @@ public class Crypto {
         Person daniel = new Person("Daniel");
         Person edward = new Person("Edward");
         Person john = new Person("John");
-        Person livia = new Person("Lívia");
+        Person liv = new Person("Liv");
 
 
 
         tom.send(daniel, 1L);
-        daniel.send(livia, 2L);
-        livia.send(daniel, 3L);
-        daniel.send(livia, 4L);
-        livia.send(daniel, 5L);
+        daniel.send(liv, 2L);
+        liv.send(daniel, 3L);
+        daniel.send(liv, 4L);
+        liv.send(daniel, 5L);
         daniel.send(john, 6L);
         john.send(edward, 7L);
         edward.send(john, 8L);
